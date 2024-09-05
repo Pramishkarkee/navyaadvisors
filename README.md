@@ -19,7 +19,7 @@ This project is a Django REST framework application that provides an API for man
 
 - **JWT Authentication** is used for secure API access.
   - **Staff Users**: Can POST, PATCH, PUT, and GET transactions.
-  - **Manager Users**: Have access to all endpoints and can approve or reject transactions.
+  - **Manager Users**: Have access to all endpoints .
 
 ## Setup Instructions
 
@@ -175,8 +175,7 @@ This project is a Django REST framework application that provides an API for man
 
 - **Manager**:
   - Allowed to perform all actions including accessing PDF endpoints.
-  - Can approve or reject transactions.
-  - PDF is generated only after transaction approval.
+
 
 ## Example Authorization Header
 
@@ -192,6 +191,8 @@ Example:
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1NjQyOTgyLCJpYXQiOjE3MjU1NTY1ODIsImp0aSI6ImVhMWVjYjc0NWZkZDQ4OTJiNzRlNGJhZjQ5YmExODA0IiwidXNlcl9pZCI6IjQwYjA4MWRmLTA3MDAtNDg5Yi1hZTJkLTRjODllOWM2OWE0YyJ9.wENiqZMaM3LANw2ihn43K4_wwNIwILOrh8UrdS_g3wI
 ```
 
+**Recommended Modheader extension to add token**
+  - https://modheader.com/
+
 ---
 
-Feel free to adjust the content based on your specific project setup and requirements.
