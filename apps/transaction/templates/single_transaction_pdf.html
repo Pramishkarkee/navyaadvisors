@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Transaction Table</h2>
+
+<table>
+    <tbody>
+        <!-- Sample Row -->
+        <tr>
+            <td>Transaction ID</td>
+            <td>{{ items.id }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ items.name }}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>{{ items.phone }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ items.email }}</td>
+        </tr>
+        <tr>
+            <td>Amount</td>
+            <td>{{ items.amount }}</td>
+        </tr>
+        <tr>
+            <td>Transaction Date</td>
+            <td>{{ items.transaction_date }}</td>
+        </tr>
+        <!-- More rows can be added here -->
+    </tbody>
+</table>
+
+</body>
+</html>
