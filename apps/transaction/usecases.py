@@ -1,6 +1,7 @@
 from apps.transaction.models import Transaction
 from apps.core.usecases import BaseUseCase
 
+
 class AddTransactionUseCase(BaseUseCase):
     def __init__(self,serializer):
         self.serializer = serializer

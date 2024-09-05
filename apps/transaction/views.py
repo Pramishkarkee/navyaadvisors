@@ -1,7 +1,4 @@
-from django.shortcuts import render
 from apps.core import generics
-from apps.transaction.serializers import TransactionSerializers
-# Create your views here.
 from django.utils.translation import gettext_lazy as _
 from rest_framework.views import APIView
 from apps.transaction.models import Transaction
@@ -9,11 +6,12 @@ from apps.transaction.serializers import TransactionSerializers,TransactionInput
 from rest_framework.response import Response
 from apps.transaction.usecases import ListTransactionUseCase,AddTransactionUseCase
 from rest_framework import status
-from rest_framework.permissions import BasePermission, IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
 from apps.transaction.utils import generate_pdf_from_html
 from django.http import HttpResponse
-from apps.users.permission import IsStaffUser,IsManagerUser,IsManagerOrStaffUser
+from apps.users.permission import IsManagerUser,IsManagerOrStaffUser
+
+
 class TransactionApi(APIView):
     def get_permissions(self):
         """
