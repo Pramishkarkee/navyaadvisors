@@ -3,7 +3,7 @@ from apps.transaction.views import TransactionCreate,TransactionList,Transaction
 urlpatterns = [
     path('transactions/create/',TransactionCreate.as_view(),name='transaction-create'),
     path('transactions/list/', TransactionList.as_view(),name='transaction-list'),
-    path('transactions/<str:pk>/',TransactionApi.as_view()),
+    path('transactions/<str:txnid>/',TransactionApi.as_view()),
     path('pdf/transactions/',TransactionListPDFView.as_view()),
-    path('pdf/transactions/<str:pk>/',TransactionPDFView.as_view()),
+    path('pdf/transactions/<str:txnid>/',TransactionPDFView.as_view()),
 ]

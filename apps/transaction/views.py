@@ -25,18 +25,18 @@ class TransactionApi(APIView):
         # No permissions for DELETE (allow anyone)
         return [IsManagerUser()]
 
-    def get(self, request, pk, *args, **kwargs):
+    def get(self, request, txnid, *args, **kwargs):
         try:
-            obj = Transaction.objects.get(pk=pk)
+            obj = Transaction.objects.get(pk=txnid)
             serializer = TransactionSerializers(obj)
             return Response(serializer.data)
         except Transaction.DoesNotExist:
             return Response({"error": "Object not found"}, status=status.HTTP_404_NOT_FOUND)
 
 
-    def delete(self, request, pk, *args, **kwargs):
+    def delete(self, request, txnid, *args, **kwargs):
         try:
-            obj = Transaction.objects.get(pk=pk)
+            obj = Transaction.objects.get(pk=txnid)
             obj.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Transaction.DoesNotExist:
@@ -44,9 +44,9 @@ class TransactionApi(APIView):
 
     @swagger_auto_schema(operation_description="This is update section where you can update transaction data",
                          request_body=TransactionInputSerializers)
-    def put(self, request, pk, *args, **kwargs):
+    def put(self, request, txnid, *args, **kwargs):
         try:
-            obj = Transaction.objects.get(pk=pk)
+            obj = Transaction.objects.get(pk=txnid)
             serializer = TransactionInputSerializers(obj, data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -57,9 +57,9 @@ class TransactionApi(APIView):
 
     @swagger_auto_schema(operation_description="This is update section where you can update transaction data",
                          request_body=TransactionInputSerializers)
-    def patch(self, request, pk, *args, **kwargs):
+    def patch(self, request, txnid, *args, **kwargs):
         try:
-            obj = Transaction.objects.get(pk=pk)
+            obj = Transaction.objects.get(pk=txnid)
             serializer = TransactionInputSerializers(obj, data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
@@ -90,9 +90,9 @@ class TransactionList(generics.ListAPIView):
 
 class TransactionPDFView(APIView):
     permission_classes = [IsManagerUser]
-    def get(self, request,pk, *args, **kwargs):
+    def get(self, request,txnid, *args, **kwargs):
         try:
-            data = Transaction.objects.get(pk=pk)
+            data = Transaction.objects.get(pk=txnid)
             context = {
                     'items': data
                 }

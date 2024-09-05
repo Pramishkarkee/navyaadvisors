@@ -13,7 +13,6 @@ class CustomJWTAuthentication(JWTAuthentication):
         """
         try:
             user_id = validated_token[api_settings.USER_ID_CLAIM]
-            print("*******dnndbdd",user_id)
         except KeyError:
             raise InvalidToken(_('Token contained no recognizable user identification'))
 
